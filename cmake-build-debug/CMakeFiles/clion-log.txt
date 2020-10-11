@@ -1,0 +1,42 @@
+/snap/clion/129/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/marek/catkin_rrm/src
+-- Using CATKIN_DEVEL_PREFIX: /home/marek/catkin_rrm/src/cmake-build-debug/devel
+-- Using CMAKE_PREFIX_PATH: /home/marek/catkin_rrm/devel;/opt/ros/melodic
+-- This workspace overlays: /home/marek/catkin_rrm/devel;/opt/ros/melodic
+-- Found PythonInterp: /usr/bin/python2 (found suitable version "2.7.17", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python2
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/marek/catkin_rrm/src/cmake-build-debug/test_results
+-- Found gtest sources under '/usr/src/googletest': gtests will be built
+-- Found gmock sources under '/usr/src/googletest': gmock will be built
+-- Found PythonInterp: /usr/bin/python2 (found version "2.7.17") 
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.7.28
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 4 packages in topological order:
+-- ~~  - rrm_cv1
+-- ~~  - rrm_cv1_trebula
+-- ~~  - rrm_cv3
+-- ~~  - rrm_cv3_trebula
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'rrm_cv1'
+-- ==> add_subdirectory(rrm_cv1)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- rrm_cv1: 0 messages, 2 services
+-- +++ processing catkin package: 'rrm_cv1_trebula'
+-- ==> add_subdirectory(rrm_cv1_trebula)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- rrm_cv1_trebula: 0 messages, 2 services
+-- +++ processing catkin package: 'rrm_cv3'
+-- ==> add_subdirectory(rrm_cv3)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'rrm_cv3_trebula'
+-- ==> add_subdirectory(rrm_cv3_trebula)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/marek/catkin_rrm/src/cmake-build-debug

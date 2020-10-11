@@ -1,0 +1,8 @@
+prefix=/home/marek/catkin_rrm/src/cmake-build-debug/devel
+
+Name: rrm_cv3_trebula
+Description: Description of rrm_cv3_trebula
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

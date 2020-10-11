@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<robot name="arm">
+
+  <!--Links-->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.05"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="joint_1">
+    <visual>
+      <geometry>
+       <sphere radius="0.03"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+        <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="joint_2">
+    <visual>
+      <geometry>
+       <sphere radius="0.03"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="joint_3a">
+    <visual>
+      <geometry>
+        <cylinder length="0.11" radius="0.018"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+      <origin xyz="0 0 0.05" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="joint_3b">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.018"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="joint_4">
+    <visual>
+      <geometry>
+        <sphere radius="0.03"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+
+  <link name="link4">
+    <visual>
+      <geometry>
+        <cylinder length="0.080" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link3">
+    <visual>
+      <geometry>
+        <cylinder length="0.120" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link2">
+     <visual>
+      <geometry>
+        <cylinder length="0.178" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+        <cylinder length="0.203" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="tool0"/>
+
+  <!--Joints-->
+  <joint name="joint_1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="joint_1"/>
+    <origin xyz="0 0 0" rpy = "0 0 0"/>
+    <limit effort="1000.0" lower="-1.62" upper="1.62" velocity="0.5"/>
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <axis xyz="0 1 0"/>
+    <parent link="joint_1"/>
+    <child link="joint_2"/>
+    <origin xyz="0 0 0.203" rpy = "0 0 0"/>
+    <limit effort="1000.0" lower="-0.96" upper="2.182" velocity="0.5"/>
+  </joint>
+
+  <joint name="joint_3b" type="prismatic">
+    <axis xyz="0 0 1"/>
+    <parent link="joint_3a"/>
+    <child link="joint_3b"/>
+    <origin xyz="0 0 0" rpy = "0 0 0"/>
+    <limit effort="1000.0" lower="0.0" upper="0.10" velocity="0.5"/>
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <axis xyz="0 1 0"/>
+    <parent link="joint_3b"/>
+    <child link="joint_4"/>
+    <origin xyz="0 0 0.170" rpy = "0 0 0"/>
+    <limit effort="1000.0" lower="-0.96" upper="2.182" velocity="0.5"/>
+  </joint>
+
+  <joint name="link4_to_joint_4" type="fixed">
+    <parent link="joint_4"/>
+    <child link="link4"/>
+    <origin xyz="0 0 0.069" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="link3_to_joint_3b" type="fixed">
+    <parent link="joint_3b"/>
+    <child link="link3"/>
+    <origin xyz="0 0 0.081" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="link2_to_joint_3a" type="fixed">
+    <parent link="link2"/>
+    <child link="joint_3a"/>
+    <origin xyz="0 0 0.09" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="link2_to_joint_2" type="fixed">
+    <parent link="joint_2"/>
+    <child link="link2"/>
+    <origin xyz="0 0 0.089" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="link1_to_joint_1" type="fixed">
+    <parent link="joint_1"/>
+    <child link="link1"/>
+    <origin xyz="0 0 0.1015" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="joint_4_to_tool0" type="fixed">
+    <parent link="joint_4"/>
+    <child link="tool0"/>
+    <origin xyz="0 0 0.11" rpy = "0 0 0"/>
+  </joint>
+
+</robot>
