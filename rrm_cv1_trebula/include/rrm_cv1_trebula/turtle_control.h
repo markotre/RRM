@@ -10,8 +10,8 @@
 #include <turtlesim/Pose.h>
 #include <turtlesim/TeleportAbsolute.h>
 #include <turtlesim/SetPen.h>
-#include <rrm_cv1/Draw.h>
-#include <rrm_cv1/StartStop.h>
+#include <rrm_cv1_trebula/Draw.h>
+#include <rrm_cv1_trebula/StartStop.h>
 
 
 //main class for turtle control
@@ -22,8 +22,8 @@ public:
     TurtleControl();
 
     //Callbacks
-    bool drawCallback(rrm_cv1::Draw::Request &req, rrm_cv1::Draw::Response &res);
-    bool runCallback(rrm_cv1::StartStop::Request &req, rrm_cv1::StartStop::Response &res);
+    bool drawCallback(rrm_cv1_trebula::Draw::Request &req, rrm_cv1_trebula::Draw::Response &res);
+    bool runCallback(rrm_cv1_trebula::StartStop::Request &req, rrm_cv1_trebula::StartStop::Response &res);
     void poseCallback(const turtlesim::Pose::ConstPtr& msg);
 
     // Other public methods

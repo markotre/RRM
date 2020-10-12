@@ -69,7 +69,7 @@ TurtleControl::TurtleControl(){
 }
 
 // service server callback for start/stop the drawing
-bool TurtleControl::runCallback(rrm_cv1::StartStop::Request &req, rrm_cv1::StartStop::Response &res) {
+bool TurtleControl::runCallback(rrm_cv1_trebula::StartStop::Request &req, rrm_cv1_trebula::StartStop::Response &res) {
 
     this->run_state = req.run;
     if(this->run_state){
@@ -84,7 +84,7 @@ bool TurtleControl::runCallback(rrm_cv1::StartStop::Request &req, rrm_cv1::Start
 }
 
 // service server callback for starting the drawing and drawing speed/radius configuration
-bool TurtleControl::drawCallback(rrm_cv1::Draw::Request &req, rrm_cv1::Draw::Response &res)
+bool TurtleControl::drawCallback(rrm_cv1_trebula::Draw::Request &req, rrm_cv1_trebula::Draw::Response &res)
 {
     // osetrenie delenia nulou
     if(req.radius != 0){
