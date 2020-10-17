@@ -141,7 +141,7 @@
     <limit effort="1000.0" lower="-0.96" upper="2.182" velocity="0.5"/>
   </joint>
 
-  <joint name="joint_3" type="prismatic">
+  <joint name="joint_3b" type="prismatic">
     <axis xyz="0 0 1"/>
     <parent link="joint_3a"/>
     <child link="joint_3b"/>

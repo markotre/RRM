@@ -41,9 +41,17 @@ private:
     // joint states
     sensor_msgs::JointState joint_state_;
 
-    // current position of link2 and end efector
+    // current position of end efector
     tf::Vector3 position_;
     tf::Quaternion orientation_;
+
+    // current position of joint2
+    tf::Vector3 position_j2;
+    tf::Quaternion orientation_j2;
+
+    // current position of joint3
+    tf::Vector3 position_j3;
+    tf::Quaternion orientation_j3;
 };
 
 #endif //FORWARD_KINEMATICS_H
