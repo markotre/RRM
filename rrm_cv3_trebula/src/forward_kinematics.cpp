@@ -2,7 +2,7 @@
 
 using namespace matrix;
 
-ForwardKinematics::ForwardKinematics() : position_(0, 0, L1 + L2 + L3 +L4 ) , position_j2(0, 0, L1 ), position_j3(0, 0, L1+L2 ){
+ForwardKinematics::ForwardKinematics() : position_(0, 0, L1 + L2 + L3 +L4 ) , position_j2(0, 0, L1 ), position_j3(0, 0, L1+L2 ), position_j4(0, 0, L1+L2+L3 ){
 
     // ROS node handler
     ros::NodeHandle n;
@@ -35,10 +35,9 @@ void ForwardKinematics::broadcastTf(){
     transform.setRotation(q);
     broadcaster_.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"joint_2", "joint_3a"));
 
-    transform.setOrigin( tf::Vector3(0, 0, 0.170));
-    q.setRPY(0,joint_state_.position[3],0);
-    transform.setRotation(q);
-    broadcaster_.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"joint_3b", "joint_4"));
+    transform.setOrigin( position_j4);
+    transform.setRotation(orientation_j4);
+    broadcaster_.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "joint_4"));
 
     // Calculated forward kinematic joint3b -> base_link
     transform.setOrigin( position_j3 );
@@ -150,4 +149,28 @@ void ForwardKinematics::jointCallback(const sensor_msgs::JointState::ConstPtr& m
     position_j3.setX(resultj3(0,0));
     position_j3.setY(resultj3(1,0));
     position_j3.setZ(resultj3(2,0));
+
+    Eigen::MatrixXd J4 = createRz(joint_state_.position[0]) * createTz(L1) * createRy(joint_state_.position[1]) * createTz(L2 + joint_state_.position[2] + L3 +0.05) * createRy(joint_state_.position[3]);
+
+    // convert rotation matrix to tf matrix
+    tf::Matrix3x3 tf3dj4;
+    tf3dj4.setValue(static_cast<double>(J4(0,0)), static_cast<double>(J4(0,1)), static_cast<double>(J4(0,2)),
+                    static_cast<double>(J4(1,0)), static_cast<double>(J4(1,1)), static_cast<double>(J4(1,2)),
+                    static_cast<double>(J4(2,0)), static_cast<double>(J4(2,1)), static_cast<double>(J4(2,2)));
+
+    // Convert to quternion
+    tf3dj4.getRotation(orientation_j4);
+
+    // Calculate position
+    Eigen::MatrixXd pj4(4,1);
+    pj4(0,0) = 0;
+    pj4(1,0) = 0;
+    pj4(2,0) = 0;
+    pj4(3,0) = 1;
+    Eigen::MatrixXd resultj4 = J4 * pj4;
+    position_j4.setX(resultj4(0,0));
+    position_j4.setY(resultj4(1,0));
+    position_j4.setZ(resultj4(2,0));
 }
+
+

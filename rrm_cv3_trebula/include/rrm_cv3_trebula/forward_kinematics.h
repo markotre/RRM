@@ -52,6 +52,11 @@ private:
     // current position of joint3
     tf::Vector3 position_j3;
     tf::Quaternion orientation_j3;
+
+    // current position of joint4
+    tf::Vector3 position_j4;
+    tf::Quaternion orientation_j4;
+
 };
 
 #endif //FORWARD_KINEMATICS_H
