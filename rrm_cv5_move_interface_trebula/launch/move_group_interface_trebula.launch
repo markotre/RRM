@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="move_interface_trebula" pkg="rrm_cv5_move_interface_trebula" type="move_interface_trebula" respawn="false" output="screen">
+  </node>
+
+</launch>

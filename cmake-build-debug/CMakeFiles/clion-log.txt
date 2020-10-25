@@ -17,12 +17,29 @@
 -- BUILD_SHARED_LIBS is on
 -- BUILD_SHARED_LIBS is on
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- ~~  traversing 4 packages in topological order:
+-- ~~  traversing 11 packages in topological order:
+-- ~~  - abb_irb4600_moveit_config
+-- ~~  - abb_resources
+-- ~~  - panda_moveit_config
+-- ~~  - rrm_cv5_manipulator_trebula
+-- ~~  - abb_irb4600_support
 -- ~~  - rrm_cv1
 -- ~~  - rrm_cv1_trebula
 -- ~~  - rrm_cv3
 -- ~~  - rrm_cv3_trebula
+-- ~~  - moveit_tutorials
+-- ~~  - rrm_cv5_move_interface_trebula
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'abb_irb4600_moveit_config'
+-- ==> add_subdirectory(abb_irb4600_moveit_config)
+-- +++ processing catkin package: 'abb_resources'
+-- ==> add_subdirectory(abb_resources)
+-- +++ processing catkin package: 'panda_moveit_config'
+-- ==> add_subdirectory(panda_moveit_config)
+-- +++ processing catkin package: 'rrm_cv5_manipulator_trebula'
+-- ==> add_subdirectory(rrm_cv5_manipulator_trebula)
+-- +++ processing catkin package: 'abb_irb4600_support'
+-- ==> add_subdirectory(abb_irb4600_support)
 -- +++ processing catkin package: 'rrm_cv1'
 -- ==> add_subdirectory(rrm_cv1)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
@@ -36,6 +53,12 @@
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- +++ processing catkin package: 'rrm_cv3_trebula'
 -- ==> add_subdirectory(rrm_cv3_trebula)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'moveit_tutorials'
+-- ==> add_subdirectory(moveit_tutorials)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'rrm_cv5_move_interface_trebula'
+-- ==> add_subdirectory(rrm_cv5_move_interface_trebula)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- Configuring done
 -- Generating done
