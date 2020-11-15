@@ -1,0 +1,8 @@
+prefix=/home/marek/catkin_rrm/src/cmake-build-debug/devel
+
+Name: abb_camera_simulation
+Description: Description of abb_camera_simulation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

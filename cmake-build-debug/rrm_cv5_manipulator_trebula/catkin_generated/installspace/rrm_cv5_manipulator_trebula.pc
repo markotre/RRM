@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: rrm_cv5_manipulator_trebula
+Description: Description of rrm_cv5_manipulator_trebula
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

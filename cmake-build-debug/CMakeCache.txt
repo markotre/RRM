@@ -381,6 +381,12 @@ _gtest_INCLUDES:FILEPATH=/usr/include/gtest/gtest.h
 _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 
 //Value Computed by CMake
+abb_camera_simulation_BINARY_DIR:STATIC=/home/marek/catkin_rrm/src/cmake-build-debug/abb_camera_simulation
+
+//Value Computed by CMake
+abb_camera_simulation_SOURCE_DIR:STATIC=/home/marek/catkin_rrm/src/abb_camera_simulation
+
+//Value Computed by CMake
 abb_irb4600_moveit_config_BINARY_DIR:STATIC=/home/marek/catkin_rrm/src/cmake-build-debug/abb_irb4600_moveit_config
 
 //Value Computed by CMake
@@ -900,7 +906,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=29
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=30
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -943,6 +949,10 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX0X
+COMPILER_SUPPORTS_CXX0X:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX11
+COMPILER_SUPPORTS_CXX11:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/include][cfound components: system filesystem date_time thread chrono atomic ][v1.65.1()]
 //Details about finding PythonInterp

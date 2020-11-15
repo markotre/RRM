@@ -1,0 +1,8 @@
+prefix=/home/marek/catkin_rrm/src/cmake-build-debug/devel
+
+Name: rrm_cv5_move_interface_trebula
+Description: Description of rrm_cv5_move_interface_trebula
+Version: 0.0.0
+Cflags: -I/usr/include/eigen3
+Libs: -L${prefix}/lib 
+Requires: moveit_core moveit_visual_tools moveit_ros_planning_interface interactive_markers tf2_geometry_msgs

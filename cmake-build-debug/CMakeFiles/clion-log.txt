@@ -17,7 +17,7 @@
 -- BUILD_SHARED_LIBS is on
 -- BUILD_SHARED_LIBS is on
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- ~~  traversing 11 packages in topological order:
+-- ~~  traversing 12 packages in topological order:
 -- ~~  - abb_irb4600_moveit_config
 -- ~~  - abb_resources
 -- ~~  - panda_moveit_config
@@ -25,6 +25,7 @@
 -- ~~  - abb_irb4600_support
 -- ~~  - rrm_cv1
 -- ~~  - rrm_cv1_trebula
+-- ~~  - abb_camera_simulation
 -- ~~  - rrm_cv3
 -- ~~  - rrm_cv3_trebula
 -- ~~  - moveit_tutorials
@@ -48,6 +49,9 @@
 -- ==> add_subdirectory(rrm_cv1_trebula)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- rrm_cv1_trebula: 0 messages, 2 services
+-- +++ processing catkin package: 'abb_camera_simulation'
+-- ==> add_subdirectory(abb_camera_simulation)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- +++ processing catkin package: 'rrm_cv3'
 -- ==> add_subdirectory(rrm_cv3)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy

@@ -493,3 +493,33 @@ make[1]: Leaving directory '/home/marek/catkin_rrm/src/cmake-build-debug/CMakeFi
 
 
 
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX11 succeeded with the following output:
+Change Dir: /home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_203b3/fast && /usr/bin/make  -f CMakeFiles/cmTC_203b3.dir/build.make CMakeFiles/cmTC_203b3.dir/build
+make[1]: Entering directory '/home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_203b3.dir/src.cxx.o
+/usr/bin/c++    -DCOMPILER_SUPPORTS_CXX11   -std=c++11 -o CMakeFiles/cmTC_203b3.dir/src.cxx.o -c /home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_203b3
+/snap/clion/129/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_203b3.dir/link.txt --verbose=1
+/usr/bin/c++   -DCOMPILER_SUPPORTS_CXX11    -rdynamic CMakeFiles/cmTC_203b3.dir/src.cxx.o  -o cmTC_203b3 
+make[1]: Leaving directory '/home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX0X succeeded with the following output:
+Change Dir: /home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_66334/fast && /usr/bin/make  -f CMakeFiles/cmTC_66334.dir/build.make CMakeFiles/cmTC_66334.dir/build
+make[1]: Entering directory '/home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_66334.dir/src.cxx.o
+/usr/bin/c++    -DCOMPILER_SUPPORTS_CXX0X   -std=c++0x -o CMakeFiles/cmTC_66334.dir/src.cxx.o -c /home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_66334
+/snap/clion/129/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66334.dir/link.txt --verbose=1
+/usr/bin/c++   -DCOMPILER_SUPPORTS_CXX0X    -rdynamic CMakeFiles/cmTC_66334.dir/src.cxx.o  -o cmTC_66334 
+make[1]: Leaving directory '/home/marek/catkin_rrm/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
