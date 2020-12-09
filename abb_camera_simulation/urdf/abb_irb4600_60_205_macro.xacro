@@ -282,7 +282,7 @@
         <joint name="${prefix}joint_6-tool0" type="fixed">
             <parent link="${prefix}link_6"/>
             <child link="${prefix}tool0"/>
-            <origin xyz="0.135 0 0" rpy="0 1.570796 0"/>
+            <origin xyz="0.15 0 0" rpy="0 0 0"/>
         </joint>
 
         <joint name="to_kinect" type="fixed">
@@ -310,7 +310,7 @@
             <parent link="${prefix}tool0"/>
             <child link="kinect_mesh"/>
             <limit lower="0" upper="0" effort="0" velocity="0"/>
-            <origin xyz="0 0 0.015" rpy="0 0 1.57"/>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
         </joint>
 
         <link name ="kinect_frame"/>
