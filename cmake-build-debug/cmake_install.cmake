@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/marek/catkin_rrm/src/cmake-build-debug/gtest/cmake_install.cmake")
+  include("/home/marek/catkin_rrm/src/cmake-build-debug/abb_cv7_moveit/cmake_install.cmake")
   include("/home/marek/catkin_rrm/src/cmake-build-debug/abb_irb4600_moveit_config/cmake_install.cmake")
   include("/home/marek/catkin_rrm/src/cmake-build-debug/abb_resources/cmake_install.cmake")
   include("/home/marek/catkin_rrm/src/cmake-build-debug/panda_moveit_config/cmake_install.cmake")

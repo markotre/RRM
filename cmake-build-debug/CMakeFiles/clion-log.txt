@@ -13,11 +13,12 @@
 -- Found gmock sources under '/usr/src/googletest': gmock will be built
 -- Found PythonInterp: /usr/bin/python2 (found version "2.7.17") 
 -- Using Python nosetests: /usr/bin/nosetests-2.7
--- catkin 0.7.28
+-- catkin 0.7.29
 -- BUILD_SHARED_LIBS is on
 -- BUILD_SHARED_LIBS is on
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- ~~  traversing 12 packages in topological order:
+-- ~~  traversing 13 packages in topological order:
+-- ~~  - abb_cv7_moveit
 -- ~~  - abb_irb4600_moveit_config
 -- ~~  - abb_resources
 -- ~~  - panda_moveit_config
@@ -31,6 +32,8 @@
 -- ~~  - moveit_tutorials
 -- ~~  - rrm_cv5_move_interface_trebula
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'abb_cv7_moveit'
+-- ==> add_subdirectory(abb_cv7_moveit)
 -- +++ processing catkin package: 'abb_irb4600_moveit_config'
 -- ==> add_subdirectory(abb_irb4600_moveit_config)
 -- +++ processing catkin package: 'abb_resources'

@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("abb_cv7_moveit")
 subdirs("abb_irb4600_moveit_config")
 subdirs("abb_resources")
 subdirs("panda_moveit_config")

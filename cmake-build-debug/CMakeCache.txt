@@ -387,6 +387,12 @@ abb_camera_simulation_BINARY_DIR:STATIC=/home/marek/catkin_rrm/src/cmake-build-d
 abb_camera_simulation_SOURCE_DIR:STATIC=/home/marek/catkin_rrm/src/abb_camera_simulation
 
 //Value Computed by CMake
+abb_cv7_moveit_BINARY_DIR:STATIC=/home/marek/catkin_rrm/src/cmake-build-debug/abb_cv7_moveit
+
+//Value Computed by CMake
+abb_cv7_moveit_SOURCE_DIR:STATIC=/home/marek/catkin_rrm/src/abb_cv7_moveit
+
+//Value Computed by CMake
 abb_irb4600_moveit_config_BINARY_DIR:STATIC=/home/marek/catkin_rrm/src/cmake-build-debug/abb_irb4600_moveit_config
 
 //Value Computed by CMake
@@ -906,7 +912,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=30
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=31
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
