@@ -310,8 +310,8 @@ int main(int argc, char** argv)
   // Cartesian motions are frequently needed to be slower for actions such as approach and retreat
   // grasp motions. Here we demonstrate how to reduce the speed of the robot arm via a scaling factor
   // of the maxiumum speed of each joint. Note this is not the speed of the end effector point.
-    move_group.setMaxVelocityScalingFactor(0.01);
-    move_group.setMaxAccelerationScalingFactor(0.01);
+    move_group.setMaxVelocityScalingFactor(0.5);
+    move_group.setMaxAccelerationScalingFactor(0.5);
 
   // We want the Cartesian path to be interpolated at a resolution of 1 cm
   // which is why we will specify 0.01 as the max step in Cartesian
@@ -320,7 +320,7 @@ int main(int argc, char** argv)
   // large unpredictable motions of redundant joints and could be a safety issue
   moveit_msgs::RobotTrajectory trajectory;
   const double jump_threshold = 0.0;
-  const double eef_step = 0.1;
+  const double eef_step = 0.01;
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
   ROS_INFO_NAMED("rrm_cv5", "Moving cartesian path (%.2f%% achieved)", fraction * 100.0);
   move_group.execute(trajectory);
