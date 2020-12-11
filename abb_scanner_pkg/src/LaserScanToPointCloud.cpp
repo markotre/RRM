@@ -1,8 +1,8 @@
 #include "abb_scanner_pkg/LaserScanToPointCloud.h"
 
 LaserScanToPointCloud::LaserScanToPointCloud() :
-    laser_sub_(n_, "rrbot/laser/scan", 25),
-    laser_notifier_(laser_sub_,listener_, "/tool0", 25) {
+    laser_sub_(n_, "rrbot/laser/scan", 200),
+    laser_notifier_(laser_sub_,listener_, "/tool0", 200) {
     ROS_INFO("Initializing scan listener");
 //init point cloud
     full_cloud.header.stamp = ros::Time::now();

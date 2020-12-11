@@ -29,7 +29,7 @@ PO VYTVORENI TRAJECTORY KONTROLERA ODKOMENTOVAT!
     <include file="$(find abb_camera_simulation)/launch/trajectory_controller.launch" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
-    <param name="publish_frequency" type="double" value="400.0" />
+    <param name="publish_frequency" type="double" value="100.0" />
   </node>
 
 </launch>

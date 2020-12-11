@@ -285,17 +285,34 @@ int main(int argc, char** argv)
       waypoints.push_back(target_pose3);
   }
 
+    target_pose3.orientation.x=0.5;
+    target_pose3.orientation.y=0.5;
+    target_pose3.orientation.z=-0.5;
+    target_pose3.orientation.w=0.5;
+    waypoints.push_back(target_pose3);
+
+    for(int it = 0; it<5;it++){
+        if(it%2==0){
+            target_pose3.position.y -= 1.25;
+            waypoints.push_back(target_pose3);
+        }else{
+            target_pose3.position.y += 1.25;
+            waypoints.push_back(target_pose3);
+        }
+        target_pose3.position.x += 0.19;
+        waypoints.push_back(target_pose3);
+    }
+    target_pose3.position.y += 1.25;
+    waypoints.push_back(target_pose3);
+
+
 
   // Cartesian motions are frequently needed to be slower for actions such as approach and retreat
   // grasp motions. Here we demonstrate how to reduce the speed of the robot arm via a scaling factor
   // of the maxiumum speed of each joint. Note this is not the speed of the end effector point.
     move_group.setMaxVelocityScalingFactor(0.01);
     move_group.setMaxAccelerationScalingFactor(0.01);
-    joint_limits_interface::JointLimits limits;
-    limits.has_acceleration_limits = true;
-    limits.max_acceleration = 0.05;
-    limits.has_velocity_limits = true;
-    limits.max_velocity = 0.05;
+
   // We want the Cartesian path to be interpolated at a resolution of 1 cm
   // which is why we will specify 0.01 as the max step in Cartesian
   // translation.  We will specify the jump threshold as 0.0, effectively disabling it.
