@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /MotionPlanning1
         - /PointCloud21
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5927770733833313
     Tree Height: 393
   - Class: rviz/Help
@@ -260,13 +262,65 @@ Visualization Manager:
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
-      Size (Pixels): 3
+      Size (Pixels): 1
       Size (m): 0.009999999776482582
-      Style: Flat Squares
+      Style: Points
       Topic: /final_cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: false
+        kinect_frame:
+          Value: false
+        kinect_mesh:
+          Value: false
+        link_1:
+          Value: false
+        link_2:
+          Value: false
+        link_3:
+          Value: false
+        link_4:
+          Value: false
+        link_5:
+          Value: false
+        link_6:
+          Value: false
+        look_at:
+          Value: false
+        tool0:
+          Value: true
+        world:
+          Value: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        world:
+          base_link:
+            link_1:
+              link_2:
+                link_3:
+                  link_4:
+                    link_5:
+                      link_6:
+                        tool0:
+                          kinect_frame:
+                            {}
+                          kinect_mesh:
+                            {}
+            look_at:
+              {}
+      Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
@@ -299,10 +353,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.16479696333408356
+      Pitch: 0.06479696929454803
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 0.4817678928375244
+      Yaw: 0.10676872730255127
     Saved: ~
 Window Geometry:
   Displays:

@@ -7,7 +7,7 @@ int main(int argc, char** argv){
     ros::NodeHandle n;
 
     LaserScanToPointCloud laserScanToPointCloud;
-    ros::Rate rate(100);
+    ros::Rate rate(400);
     ROS_INFO("Initializing scanner_node");
 
     while(ros::ok()){

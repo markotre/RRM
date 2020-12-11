@@ -35,7 +35,7 @@
   <!-- We do not have a robot connected, so publish fake joint states -->
    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
      <param name="/use_gui" value="false"/>
-     <param name="rate" value="100"/>
+     <param name="rate" value="400"/>
      <rosparam param="/source_list">[/abb_irb/joint_states]</rosparam>
    </node>
 

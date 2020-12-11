@@ -44,6 +44,10 @@
 #include <moveit_msgs/CollisionObject.h>
 
 #include <moveit_visual_tools/moveit_visual_tools.h>
+#include <ros/ros.h>
+#include <joint_limits_interface/joint_limits.h>
+#include <joint_limits_interface/joint_limits_urdf.h>
+#include <joint_limits_interface/joint_limits_rosparam.h>
 
 int main(int argc, char** argv)
 {
@@ -111,21 +115,22 @@ int main(int argc, char** argv)
 
   // Start the demo
   // ^^^^^^^^^^^^^^^^^^^^^^^^^
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to start the rrm_cv5_zadanie");
+  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to move robot to start position");
 
   // Planning to a Pose goal
   // ^^^^^^^^^^^^^^^^^^^^^^^
   // We can plan a motion for this group to a desired pose for the
   // end-effector.
   geometry_msgs::Pose target_pose1;
-  target_pose1.orientation.y = 0.573462344;
-  target_pose1.orientation.w = 0.81923192;
-  target_pose1.position.x = 1.5;
-  target_pose1.position.y = -0.30;
-  target_pose1.position.z = 1.2;
-
-
+  target_pose1.orientation.y = 0.707;
+  target_pose1.orientation.w = 0.707;
+  target_pose1.position.x = 0.815;
+  target_pose1.position.y = -0.47;
+  target_pose1.position.z = 0.7;
   move_group.setPoseTarget(target_pose1);
+
+  move_group.setMaxVelocityScalingFactor(1);
+  move_group.setMaxAccelerationScalingFactor(1);
 
   // Now, we call the planner to compute the plan and visualize it.
   // Note that we are just planning, not asking move_group
@@ -133,32 +138,39 @@ int main(int argc, char** argv)
   moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 
   bool success = (move_group.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+   if(success){
+       move_group.move();
+       ROS_INFO_NAMED("rrm_cv5", "Moving robot to start position");
+   }else{
+       ROS_INFO_NAMED("rrm_cv5", "NO plan  to  movie robot to start position");
 
-  ROS_INFO_NAMED("rrm_cv5", "Visualizing plan 1 (pose goal) %s", success ? "PASSED" : "FAILED");
+   }
 
+
+    visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to start scanning");
   // Visualizing plans
   // ^^^^^^^^^^^^^^^^^
   // We can also visualize the plan as a line with markers in RViz.
-  ROS_INFO_NAMED("rrm_cv5", "Visualizing plan 1 as trajectory line");
-  visual_tools.publishAxisLabeled(target_pose1, "pose1");
-  visual_tools.publishText(text_pose, "Pose Goal", rvt::WHITE, rvt::XXXLARGE);
-  visual_tools.publishTrajectoryLine(my_plan.trajectory_, joint_model_group);
-  visual_tools.trigger();
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");
+    /*ROS_INFO_NAMED("rrm_cv5", "Visualizing plan 1 as trajectory line");
+    visual_tools.publishAxisLabeled(target_pose1, "pose1");
+    visual_tools.publishText(text_pose, "Pose Goal", rvt::WHITE, rvt::XXXLARGE);
+    visual_tools.publishTrajectoryLine(my_plan.trajectory_, joint_model_group);
+    visual_tools.trigger();
 
-  // Moving to a pose goal
-  // ^^^^^^^^^^^^^^^^^^^^^
-  //
-  // Moving to a pose goal is similar to the step above
-  // except we now use the move() function. Note that
-  // the pose goal we had set earlier is still active
-  // and so the robot will try to move to that goal. We will
-  // not use that function in this tutorial since it is
-  // a blocking function and requires a controller to be active
-  // and report success on execution of a trajectory.
 
-  /* Uncomment below line when working with a real robot */
-  /* move_group.move(); */
+    // Moving to a pose goal
+    // ^^^^^^^^^^^^^^^^^^^^^
+    //
+    // Moving to a pose goal is similar to the step above
+    // except we now use the move() function. Note that
+    // the pose goal we had set earlier is still active
+    // and so the robot will try to move to that goal. We will
+    // not use that function in this tutorial since it is
+    // a blocking function and requires a controller to be active
+    // and report success on execution of a trajectory.
+
+    *//* Uncomment below line when working with a real robot *//*
+  *//* move_group.move(); *//*
 
   // Planning to a joint-space goal
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -245,7 +257,7 @@ int main(int argc, char** argv)
   visual_tools.prompt("next step");
 
   // When done with the path constraint be sure to clear it.
-  move_group.clearPathConstraints();
+  move_group.clearPathConstraints();*/
 
   // Cartesian Paths
   // ^^^^^^^^^^^^^^^
@@ -253,27 +265,37 @@ int main(int argc, char** argv)
   // for the end-effector to go through. Note that we are starting
   // from the new start state above.  The initial pose (start state) does not
   // need to be added to the waypoint list but adding it can help with visualizations
+  geometry_msgs::PoseStamped current_pose = move_group.getCurrentPose("tool0");
+  geometry_msgs::Pose start_pose2 = current_pose.pose;
+
   std::vector<geometry_msgs::Pose> waypoints;
-  waypoints.push_back(start_pose2);
+  //waypoints.push_back(start_pose2);
 
   geometry_msgs::Pose target_pose3 = start_pose2;
 
-  target_pose3.position.z -= 0.3;
-  waypoints.push_back(target_pose3);  // down
+  for(int it = 0; it<6;it++){
+      if(it%2==0){
+          target_pose3.position.x += 1;
+          waypoints.push_back(target_pose3);
+      }else{
+          target_pose3.position.x -= 1;
+          waypoints.push_back(target_pose3);
+      }
+      target_pose3.position.y += 0.19;
+      waypoints.push_back(target_pose3);
+  }
 
-  target_pose3.position.y -= 0.5;
-  waypoints.push_back(target_pose3);  // right
-
-  target_pose3.position.z += 0.4;
-  target_pose3.position.y += 0.6;
-  target_pose3.position.x += 0.5;
-  waypoints.push_back(target_pose3);  // up and left
 
   // Cartesian motions are frequently needed to be slower for actions such as approach and retreat
   // grasp motions. Here we demonstrate how to reduce the speed of the robot arm via a scaling factor
   // of the maxiumum speed of each joint. Note this is not the speed of the end effector point.
-  move_group.setMaxVelocityScalingFactor(0.1);
-
+    move_group.setMaxVelocityScalingFactor(0.01);
+    move_group.setMaxAccelerationScalingFactor(0.01);
+    joint_limits_interface::JointLimits limits;
+    limits.has_acceleration_limits = true;
+    limits.max_acceleration = 0.05;
+    limits.has_velocity_limits = true;
+    limits.max_velocity = 0.05;
   // We want the Cartesian path to be interpolated at a resolution of 1 cm
   // which is why we will specify 0.01 as the max step in Cartesian
   // translation.  We will specify the jump threshold as 0.0, effectively disabling it.
@@ -283,15 +305,18 @@ int main(int argc, char** argv)
   const double jump_threshold = 0.0;
   const double eef_step = 0.01;
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
-  ROS_INFO_NAMED("rrm_cv5", "Visualizing plan 4 (Cartesian path) (%.2f%% acheived)", fraction * 100.0);
+  ROS_INFO_NAMED("rrm_cv5", "Moving cartesian path (%.2f%% achieved)", fraction * 100.0);
+  move_group.execute(trajectory);
+
+  //move_group.move();
 
   // Visualize the plan in RViz
-  visual_tools.deleteAllMarkers();
+ /* visual_tools.deleteAllMarkers();
   visual_tools.publishText(text_pose, "Cartesian path", rvt::WHITE, rvt::XXXLARGE);
   visual_tools.publishPath(waypoints, rvt::LIME_GREEN, rvt::SMALL);
   for (std::size_t i = 0; i < waypoints.size(); ++i)
     visual_tools.publishAxisLabeled(waypoints[i], "pt" + std::to_string(i), rvt::SMALL);
-  visual_tools.trigger();
+  visual_tools.trigger();*/
   visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to finish the demo");
 
 
