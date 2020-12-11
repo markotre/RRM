@@ -320,7 +320,7 @@ int main(int argc, char** argv)
   // large unpredictable motions of redundant joints and could be a safety issue
   moveit_msgs::RobotTrajectory trajectory;
   const double jump_threshold = 0.0;
-  const double eef_step = 0.01;
+  const double eef_step = 0.1;
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
   ROS_INFO_NAMED("rrm_cv5", "Moving cartesian path (%.2f%% achieved)", fraction * 100.0);
   move_group.execute(trajectory);
