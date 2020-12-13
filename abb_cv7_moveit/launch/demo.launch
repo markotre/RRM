@@ -39,6 +39,10 @@
      <rosparam param="/source_list">[/abb_irb/joint_states]</rosparam>
    </node>
 
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+     <param name="publish_frequency" type="double" value="300" />
+   </node>
+
   <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
   <include file="$(find abb_cv7_moveit)/launch/move_group.launch">
     <arg name="publish_monitored_planning_scene" value="true" />

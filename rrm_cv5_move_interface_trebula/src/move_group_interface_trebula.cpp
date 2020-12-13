@@ -305,6 +305,17 @@ int main(int argc, char** argv)
     target_pose3.position.y += 1.25;
     waypoints.push_back(target_pose3);
 
+    for(int it = 0; it<5;it++){
+        if(it%2==0){
+            target_pose3.position.y -= 1.25;
+            waypoints.push_back(target_pose3);
+        }else{
+            target_pose3.position.y += 1.25;
+            waypoints.push_back(target_pose3);
+        }
+        target_pose3.position.x -= 0.19;
+        waypoints.push_back(target_pose3);
+    }
 
 
   // Cartesian motions are frequently needed to be slower for actions such as approach and retreat
